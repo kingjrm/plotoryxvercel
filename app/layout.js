@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   title: "PlotoryxMovie | Premium Streaming",
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
           src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
           strategy="afterInteractive"
         />
+        <Analytics />
       </body>
     </html>
   );
