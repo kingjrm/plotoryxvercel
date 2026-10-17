@@ -81,7 +81,8 @@ export default function GenresPage() {
               style={{
                 background: g.color,
                 borderColor: g.border,
-                boxShadow: `0 8px 20px rgba(0, 0, 0, 0.4), 0 0 10px ${g.glow}`,
+                "--genre-color": g.icon_color,
+                color: g.icon_color,
               }}
             >
               <ion-icon name={g.icon} style={{ color: g.icon_color }}></ion-icon>
@@ -100,7 +101,8 @@ export default function GenresPage() {
               style={{
                 background: g.color,
                 borderColor: g.border,
-                boxShadow: `0 8px 20px rgba(0, 0, 0, 0.4), 0 0 10px ${g.glow}`,
+                "--genre-color": g.icon_color,
+                color: g.icon_color,
               }}
             >
               <ion-icon name={g.icon} style={{ color: g.icon_color }}></ion-icon>
@@ -114,143 +116,127 @@ export default function GenresPage() {
         /* Scoped page styles for genres */
         .genres-hero {
           position: relative;
-          padding-top: calc(var(--header-height) + 40px);
-          padding-bottom: 20px;
+          padding-top: calc(var(--header-height) + 50px);
+          padding-bottom: 24px;
           text-align: center;
-          background: linear-gradient(180deg, rgba(229, 9, 20, 0.05) 0%, rgba(6, 7, 12, 0) 100%);
+          background: linear-gradient(180deg, rgba(229, 9, 20, 0.06) 0%, transparent 100%);
         }
         .genres-title {
-          font-size: 2.8rem;
-          font-weight: 800;
+          font-size: 3.2rem;
+          font-weight: 400;
           margin-bottom: 12px;
-          font-family: var(--font-family-title);
-          background: linear-gradient(180deg, #ffffff 0%, #dcdfe9 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          font-family: 'Bebas Neue', var(--font-family-title), sans-serif;
+          letter-spacing: 3px;
+          color: white;
         }
         .genres-subtitle {
           color: var(--text-secondary);
-          font-size: 1.05rem;
-          max-width: 600px;
-          margin: 0 auto 30px;
-          font-weight: 500;
+          font-size: 1rem;
+          max-width: 560px;
+          margin: 0 auto 32px;
+          font-weight: 400;
+          line-height: 1.6;
         }
         .genre-tabs {
           display: flex;
           justify-content: center;
-          gap: 15px;
+          gap: 8px;
           margin-bottom: 40px;
         }
         .genre-tab-btn {
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid var(--border-color);
-          color: var(--text-secondary);
-          padding: 12px 28px;
-          border-radius: 30px;
-          font-size: 0.95rem;
-          font-weight: 700;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.08);
+          color: rgba(255,255,255,0.5);
+          padding: 9px 24px;
+          border-radius: 99px;
+          font-size: 0.88rem;
+          font-weight: 600;
           cursor: pointer;
-          transition: all var(--transition-medium);
+          transition: all 0.2s;
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 7px;
+          backdrop-filter: blur(10px);
         }
         .genre-tab-btn:hover {
-          background: rgba(255, 255, 255, 0.08);
-          color: var(--text-primary);
-          transform: translateY(-2px);
+          background: rgba(255,255,255,0.09);
+          color: white;
+          border-color: rgba(255,255,255,0.14);
         }
         .genre-tab-btn.active {
-          background: var(--accent-gradient);
-          border-color: transparent;
-          color: white;
-          box-shadow: 0 4px 15px var(--accent-glow);
+          background: white;
+          border-color: white;
+          color: #111;
         }
         .genre-grid-container {
           display: none;
-          animation: fadeInUp 0.4s ease forwards;
+          animation: fadeInUp 0.35s ease forwards;
         }
         .genre-grid-container.active {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-          gap: 20px;
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 14px;
         }
         .premium-genre-card {
-          height: 120px;
-          border-radius: 16px;
-          border: 1px solid rgba(255, 255, 255, 0.06);
+          height: 100px;
+          border-radius: 14px;
+          border: 1px solid rgba(255,255,255,0.07);
           display: flex;
-          flex-direction: column;
-          justify-content: center;
           align-items: center;
+          gap: 16px;
           text-decoration: none;
-          padding: 20px;
+          padding: 0 20px;
           position: relative;
           overflow: hidden;
-          transition: all var(--transition-medium);
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-        }
-        .premium-genre-card ion-icon {
-          font-size: 2.2rem;
-          margin-bottom: 8px;
-          transition: transform 0.3s ease;
-          z-index: 2;
-        }
-        .premium-genre-card span {
-          font-size: 1.05rem;
-          font-weight: 700;
-          color: var(--text-primary);
-          font-family: var(--font-family-title);
-          z-index: 2;
+          transition: transform 0.22s ease, border-color 0.2s, box-shadow 0.2s;
+          background: #111;
         }
         .premium-genre-card::before {
           content: "";
           position: absolute;
-          inset: 0;
-          opacity: 0.15;
-          background: inherit;
-          z-index: 1;
-          transition: opacity 0.3s ease;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 4px;
+          background: currentColor;
+          border-radius: 4px 0 0 4px;
+        }
+        .premium-genre-card ion-icon {
+          font-size: 2rem;
+          transition: transform 0.25s ease;
+          z-index: 2;
+          flex-shrink: 0;
+        }
+        .premium-genre-card span {
+          font-size: 1rem;
+          font-weight: 700;
+          color: white;
+          font-family: var(--font-family);
+          z-index: 2;
+          letter-spacing: 0.2px;
         }
         .premium-genre-card:hover {
-          transform: translateY(-8px);
-          border-color: rgba(255, 255, 255, 0.35);
+          transform: translateY(-4px);
+          border-color: rgba(255,255,255,0.18);
+          box-shadow: 0 12px 32px rgba(0,0,0,0.5);
         }
         .premium-genre-card:hover ion-icon {
-          transform: scale(1.15) rotate(5deg);
+          transform: scale(1.15);
         }
         @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(15px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(12px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
         @media (max-width: 768px) {
-          .genres-title {
-            font-size: 2.1rem;
-          }
-          .genres-subtitle {
-            font-size: 0.95rem;
-            padding: 0 20px;
-          }
+          .genres-title { font-size: 2.4rem; }
+          .genres-subtitle { font-size: 0.92rem; padding: 0 20px; }
           .genre-grid-container.active {
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
           }
-          .premium-genre-card {
-            height: 100px;
-            border-radius: 12px;
-          }
-          .premium-genre-card ion-icon {
-            font-size: 1.8rem;
-          }
-          .premium-genre-card span {
-            font-size: 0.95rem;
-          }
+          .premium-genre-card { height: 80px; padding: 0 14px; gap: 12px; }
+          .premium-genre-card ion-icon { font-size: 1.6rem; }
+          .premium-genre-card span { font-size: 0.88rem; }
         }
       `}</style>
     </>
