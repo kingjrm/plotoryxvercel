@@ -8,7 +8,7 @@ $base_path = $config['BASE_URL'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlotoryxMovie | Premium Streaming</title>
+    <title>Plotoryx</title>
     <link rel="icon" type="image/png" href="<?= $base_path ?>/Plotoryx-Logo.png">
     
     <!-- Meta/SEO includes can go here -->
