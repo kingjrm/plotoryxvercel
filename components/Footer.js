@@ -101,13 +101,13 @@ export default function Footer() {
                   <a href="#">FAQ</a>
                 </li>
                 <li>
-                  <a href="#">DMCA Policy</a>
+                  <Link href="/dmca">DMCA Policy</Link>
                 </li>
                 <li>
-                  <a href="#">Terms of Service</a>
+                  <Link href="/terms">Terms of Service</Link>
                 </li>
                 <li>
-                  <a href="#">Privacy Policy</a>
+                  <Link href="/privacy">Privacy Policy</Link>
                 </li>
               </ul>
             </div>

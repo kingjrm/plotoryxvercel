@@ -4,11 +4,34 @@ import Footer from "@/components/Footer";
 import Script from "next/script";
 
 export const metadata = {
-  title: "PlotoryxMovie | Premium Streaming",
-  description: "Enjoy instant streaming of high-quality movies, TV shows, and anime. Completely free, with multiple streaming servers and clean interfaces.",
+  title: "Plotoryx | Free Movies & TV Streaming",
+  description: "Watch movies, TV shows, and anime for free on Plotoryx. Multiple streaming servers, clean interface, no ads.",
+  keywords: ["movies", "streaming", "free", "TV shows", "anime", "watch online"],
   icons: {
     icon: "/Plotoryx-Logo.png",
     shortcut: "/Plotoryx-Logo.png",
+    apple: "/Plotoryx-Logo.png",
+  },
+  openGraph: {
+    title: "Plotoryx | Free Movies & TV Streaming",
+    description: "Watch movies, TV shows, and anime for free on Plotoryx. Multiple streaming servers, clean interface, no ads.",
+    url: "https://plotoryx.vercel.app",
+    siteName: "Plotoryx",
+    images: [
+      {
+        url: "https://plotoryx.vercel.app/Plotoryx-Logo.png",
+        width: 512,
+        height: 512,
+        alt: "Plotoryx – Free Streaming",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Plotoryx | Free Movies & TV Streaming",
+    description: "Watch movies, TV shows, and anime for free on Plotoryx. Multiple streaming servers, clean interface, no ads.",
+    images: ["https://plotoryx.vercel.app/Plotoryx-Logo.png"],
   },
 };
 
